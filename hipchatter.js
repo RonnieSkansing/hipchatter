@@ -14,6 +14,18 @@ var DEBUG = false;
 
 //  Hipchatter functions
 Hipchatter.prototype = {
+    
+    
+    // Send a message to a room
+    // https://www.hipchat.com/docs/apiv2/method/send_message
+    send_message: function(room, message, callback) { 
+        this.request('post', 'room/'+room+'/message', message, callback);
+    },
+    // Get all participants
+    // https://www.hipchat.com/docs/apiv2/method/get_all_participants
+    get_participants: function(room, message, callback) { 
+        this.request('get', 'room/'+room+'/participant', message, callback);
+    },
 
     // Get capabilities
     // https://www.hipchat.com/docs/apiv2/method/get_capabilities
